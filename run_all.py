@@ -55,7 +55,7 @@ def gen_rss(notice_list):
 
         channel.appendChild(item)
 
-    with open("998_run_all.xml", 'w', encoding="utf-8") as f:
+    with open("998.xml", 'w', encoding="utf-8") as f:
         doc.writexml(f, indent='\t', addindent='\t', newl='\n', encoding="utf-8")
 
 
