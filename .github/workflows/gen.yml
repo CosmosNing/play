@@ -3,7 +3,7 @@ name: Gen
 on: 
   push:
   schedule:
-    - cron: '0 28 3 1/1 * ?'
+    - cron: '28 19 * * *'
 
 jobs:
   build:
