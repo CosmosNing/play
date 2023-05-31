@@ -29,10 +29,9 @@ jobs:
           git config --global user.email cosmosning@gmail.com
           git config --global user.name CosmosNing
           git add .
-          git commit -m "update" -a
+          git commit -m "update" -a || echo "Nothing to push"
         
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          force_with_lease: true
