@@ -7,34 +7,30 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - name: checkout actions
-    - uses: actions/checkout@v2
+      - name: checkout actions
+        uses: actions/checkout@v2
 
-    - name: Set up Python 3.8.3
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.8.3'
-        cache: 'pip'
+      - name: Set up Python 3.8.3
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8.3'
+          cache: 'pip'
     
-    - run: pip install -r requirements.txt
+      - run: pip install -r requirements.txt
         
-    - name: Run python runAll.py
-      run: |
-        cd paper_infos
-        python run_all.py
+      - name: Run python runAll.py
+        run:  python run_all.py
         
-    - name: Commit changes
-      run: |
-        git config --global user.email cosmosning@gmail.com
-        git config --global user.name CosmosNing
-        git add .
-        git commit -m "update" -a
+      - name: Commit changes
+        run: |
+          git config --global user.email cosmosning@gmail.com
+          git config --global user.name CosmosNing
+          git add .
+          git commit -m "update" -a
         
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
